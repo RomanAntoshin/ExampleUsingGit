@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Task2BasicOfAlgorithmization
 {
@@ -25,15 +26,8 @@ namespace Task2BasicOfAlgorithmization
                 Console.WriteLine("Not exist");
             }
             CyclesVariant5.GetAnimalsCount(64);
-            var strVar5 = new StringVariant5("Ave", "EV");
-            if(strVar5.Check())
-            {
-                Console.WriteLine("Yes");
-            }
-            else
-            {
-                Console.WriteLine("No");
-            }
+            var strVar5 = new StringVariant5("E:\\Git\\STM_labs_Practice\\STM_labs_Practice\\src\\Task2BasicOfAlgorithmization\\INPUT.txt");
+            strVar5.CheckAndWrite();
         }
     }
 }
