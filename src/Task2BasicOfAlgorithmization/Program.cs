@@ -25,6 +25,15 @@ namespace Task2BasicOfAlgorithmization
                 Console.WriteLine("Not exist");
             }
             CyclesVariant5.GetAnimalsCount(64);
+            var strVar5 = new StringVariant5("Ave", "EV");
+            if(strVar5.Check())
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
         }
     }
 }
