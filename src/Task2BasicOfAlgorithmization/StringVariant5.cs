@@ -33,7 +33,7 @@ namespace Task2BasicOfAlgorithmization
             }
             foreach(var el in one)
             {
-                if(!two.ContainsKey(el.Key) | two[el.Key]!=el.Value)
+                if(!two.ContainsKey(el.Key) || two[el.Key]!=el.Value)
                 {
                     return false;
                 }
