@@ -15,6 +15,17 @@ namespace Task2BasicOfAlgorithmization
         }
         public bool ExistCheck()
         {
+            if(sides.Length!=3)
+            {
+                return false;
+            }
+            for(int i=0; i<sides.Length; i++)
+            {
+                if(sides[i]<=0)
+                {
+                    return false;
+                }
+            }
             Array.Sort(sides);
             if (sides.Take(sides.Length - 1).Sum() <= sides[sides.Length - 1])
             {
