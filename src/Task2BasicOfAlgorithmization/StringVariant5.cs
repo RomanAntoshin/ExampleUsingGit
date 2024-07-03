@@ -19,7 +19,7 @@ namespace Task2BasicOfAlgorithmization
         }
         private bool Check()
         {
-            if(words[0].Length!=words[1].Length)
+            if (words[0].Length != words[1].Length)
             {
                 return false;
             }
@@ -27,13 +27,13 @@ namespace Task2BasicOfAlgorithmization
             Dictionary<char, int> two = new Dictionary<char, int>();
             MakeDictionary(one, words[0]);
             MakeDictionary(two, words[1]);
-            if(one.Count!=two.Count)
+            if (one.Count != two.Count)
             {
                 return false;
             }
-            foreach(var el in one)
+            foreach (var el in one)
             {
-                if(!two.ContainsKey(el.Key) || two[el.Key]!=el.Value)
+                if (!two.ContainsKey(el.Key) || two[el.Key] != el.Value)
                 {
                     return false;
                 }
@@ -57,7 +57,7 @@ namespace Task2BasicOfAlgorithmization
         public void CheckAndWrite()
         {
             var writer = new StreamWriter("E:\\Git\\STM_labs_Practice\\STM_labs_Practice\\src\\Task2BasicOfAlgorithmization\\OUTPUT.txt");
-            if(Check())
+            if (Check())
             {
                 writer.WriteLine("Yes");
                 Console.WriteLine("Yes");

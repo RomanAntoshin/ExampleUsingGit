@@ -13,9 +13,9 @@ namespace Task2BasicOfAlgorithmization
         {
             int min = Math.Abs((dates[0] - dateTime).Days);
             int minInd = 0;
-            for(int i=1; i<dates.Length; i++)
+            for (int i = 1; i < dates.Length; i++)
             {
-                if(Math.Abs((dates[i] - dateTime).Days)<min)
+                if (Math.Abs((dates[i] - dateTime).Days) < min)
                 {
                     min = Math.Abs(dates[i].Day - dateTime.Day);
                     minInd = i;

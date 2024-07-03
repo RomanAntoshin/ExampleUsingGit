@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task2BasicOfAlgorithmization
 {
@@ -15,13 +12,13 @@ namespace Task2BasicOfAlgorithmization
         }
         public bool ExistCheck()
         {
-            if(sides.Length!=3)
+            if (sides.Length != 3)
             {
                 return false;
             }
-            for(int i=0; i<sides.Length; i++)
+            for (int i = 0; i < sides.Length; i++)
             {
-                if(sides[i]<=0)
+                if (sides[i] <= 0)
                 {
                     return false;
                 }
@@ -39,11 +36,11 @@ namespace Task2BasicOfAlgorithmization
         public bool TypeCheck()
         {
             double partSumSquare = 0;
-            for(int i=0; i<sides.Length-1; i++)
+            for (int i = 0; i < sides.Length - 1; i++)
             {
                 partSumSquare += Math.Pow(sides[i], 2);
             }
-            if(Math.Pow(sides[sides.Length-1], 2)<partSumSquare)
+            if (Math.Pow(sides[sides.Length - 1], 2) < partSumSquare)
             {
                 return true;
             }

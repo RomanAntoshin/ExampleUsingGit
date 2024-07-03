@@ -6,6 +6,7 @@ namespace Task2BasicOfAlgorithmization
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("First task:");
             double[] sides = new double[] { 6, 8, 10 };
             var branches = new BranchesVariant14(sides);
             if (branches.ExistCheck())
@@ -24,9 +25,12 @@ namespace Task2BasicOfAlgorithmization
             {
                 Console.WriteLine("Not exist");
             }
+            Console.WriteLine("Second task:");
             CyclesVariant5.GetAnimalsCount(64);
+            Console.WriteLine("Third task");
             var strVar5 = new StringVariant5("E:\\Git\\STM_labs_Practice\\STM_labs_Practice\\src\\Task2BasicOfAlgorithmization\\INPUT.txt");
             strVar5.CheckAndWrite();
+            Console.WriteLine("Fourth task");
             string[] names = { "Алина", "Анна", "Валерия", "Дарья", "Ксения", "Мария", "Нелли", "Ольга", "Полина", "Рина", "Светлана", "Татьяна", "Ульяна", "Федора" };
             string[][] namesOfClasses = new string[4][];
             namesOfClasses[0] = new string[] { "Ксения", "Елизавета", "Ангелина", "Дарья", "Алина", "Рина" };
@@ -34,6 +38,7 @@ namespace Task2BasicOfAlgorithmization
             namesOfClasses[2] = new string[] { "Ксения", "Нелли", "Евгения", "Дарья", "Полина" };
             namesOfClasses[3] = new string[] { "Ксения", "Алена", "Дарья" };
             SetsVariant2.Check(names, namesOfClasses);
+            Console.WriteLine("Fiveth task");
             DateTime[] dates = new DateTime[5];
             dates[0] = new DateTime(2015, 7, 3);
             dates[1] = new DateTime(2024, 7, 1);
@@ -42,6 +47,16 @@ namespace Task2BasicOfAlgorithmization
             dates[4] = new DateTime(2024, 7, 4);
             var variant11 = new DatesVariant11(dates);
             Console.WriteLine(variant11.GetNearestDate(DateTime.Now.Date).Date);
+            Console.WriteLine("Sixth task");
+            DataStructuresVariant7<int> stack = new DataStructuresVariant7<int>();
+            stack.Push(10);
+            stack.Push(20);
+            stack.Push(30);
+            Console.WriteLine(stack.Peek());
+            while(stack.Count>0)
+            {
+                Console.WriteLine(stack.Pop());
+            }
         }
     }
 }
