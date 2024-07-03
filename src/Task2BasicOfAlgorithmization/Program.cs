@@ -24,7 +24,7 @@ namespace Task2BasicOfAlgorithmization
             {
                 Console.WriteLine("Not exist");
             }
-
+            CyclesVariant5.GetAnimalsCount(64);
         }
     }
 }
