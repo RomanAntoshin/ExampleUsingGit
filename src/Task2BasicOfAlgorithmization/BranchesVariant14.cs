@@ -8,46 +8,85 @@ namespace Task2BasicOfAlgorithmization
         private double[] sides;
         public BranchesVariant14(double[] sides)
         {
-            this.sides = sides;
+            try
+            {
+                if(sides.Length!=3)
+                {
+                    throw new Exception("Invalid data");
+                }
+                this.sides = sides;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
         }
         public bool ExistCheck()
         {
-            if (sides.Length != 3)
+
+            try
             {
-                return false;
-            }
-            for (int i = 0; i < sides.Length; i++)
-            {
-                if (sides[i] <= 0)
+                if(sides==null)
+                {
+                    //throw new Exception("Null data");
+                    throw new NullReferenceException();
+                }
+                for (int i = 0; i < sides.Length; i++)
+                {
+                    if (sides[i] <= 0)
+                    {
+                        return false;
+                    }
+                }
+                Array.Sort(sides);
+                if (sides.Take(sides.Length - 1).Sum() <= sides[sides.Length - 1])
                 {
                     return false;
                 }
+                else
+                {
+                    return true;
+                }
             }
-            Array.Sort(sides);
-            if (sides.Take(sides.Length - 1).Sum() <= sides[sides.Length - 1])
+            catch(NullReferenceException e)
             {
-                return false;
-            }
-            else
-            {
-                return true;
+                Console.WriteLine($"Error: {e.Message}");
+                throw;
             }
         }
         public bool TypeCheck()
         {
-            double partSumSquare = 0;
-            for (int i = 0; i < sides.Length - 1; i++)
+            /*if(!ExistCheck())
             {
-                partSumSquare += Math.Pow(sides[i], 2);
+                throw new Exception("Invalid data");
+            }*/
+            try
+            {
+                if (!ExistCheck())
+                {
+                    throw new Exception("This triangle is not exist");
+                }
+                double partSumSquare = 0;
+                for (int i = 0; i < sides.Length - 1; i++)
+                {
+                    partSumSquare += Math.Pow(sides[i], 2);
+                }
+                return Math.Pow(sides[sides.Length - 1], 2) < partSumSquare;
             }
-            if (Math.Pow(sides[sides.Length - 1], 2) < partSumSquare)
+            catch(Exception e)
+            {
+                Console.WriteLine($"Ошибка: {e.Message}");
+                throw;
+            }
+
+            /*if (Math.Pow(sides[sides.Length - 1], 2) < partSumSquare)
             {
                 return true;
             }
             else
             {
                 return false;
-            }
+            }*/
         }
     }
 }

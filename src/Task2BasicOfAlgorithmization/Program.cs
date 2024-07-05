@@ -7,7 +7,7 @@ namespace Task2BasicOfAlgorithmization
         static void Main(string[] args)
         {
             Console.WriteLine("First task:");
-            double[] sides = new double[] { 6, 8, 10 };
+            double[] sides = new double[] { 6, 8, 9 };
             var branches = new BranchesVariant14(sides);
             if (branches.ExistCheck())
             {
@@ -26,7 +26,12 @@ namespace Task2BasicOfAlgorithmization
                 Console.WriteLine("Not exist");
             }
             Console.WriteLine("Second task:");
-            CyclesVariant5.GetAnimalsCount(64);
+            var counts = CyclesVariant5.GetAnimalsCount(64);
+            foreach(var el in counts)
+            {
+                Console.WriteLine(el.Rabbit + " - rabit " + el.Goose + " - goose");
+            }
+            //CyclesVariant5.GetAnimalsCount(64);
             Console.WriteLine("Third task");
             var strVar5 = new StringVariant5("E:\\Git\\STM_labs_Practice\\STM_labs_Practice\\src\\Task2BasicOfAlgorithmization\\INPUT.txt");
             strVar5.CheckAndWrite();
