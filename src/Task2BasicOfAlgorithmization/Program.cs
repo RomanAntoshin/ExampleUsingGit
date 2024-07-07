@@ -26,8 +26,8 @@ namespace Task2BasicOfAlgorithmization
                 Console.WriteLine("Not exist");
             }
             Console.WriteLine("Second task:");
-            var counts = CyclesVariant5.GetAnimalsCount(64);
-            foreach(var el in counts)
+            var variants = CyclesVariant5.GetAnimalsCount(64);
+            foreach(var el in variants)
             {
                 Console.WriteLine(el.Rabbit + " - rabit " + el.Goose + " - goose");
             }
@@ -42,16 +42,31 @@ namespace Task2BasicOfAlgorithmization
             namesOfClasses[1] = new string[] { "Ксения", "Ольга", "Дарья", "Дарья", "Полина" };
             namesOfClasses[2] = new string[] { "Ксения", "Нелли", "Евгения", "Дарья", "Полина" };
             namesOfClasses[3] = new string[] { "Ксения", "Алена", "Дарья" };
-            SetsVariant2.Check(names, namesOfClasses);
+            var data = SetsVariant2.Check(names, namesOfClasses);
+            foreach(var el in data)
+            {
+                if (el.Count == namesOfClasses.Length)
+                {
+                    Console.WriteLine(el.Name + " встречается во всех классах параллели");
+                }
+                if (el.Count < namesOfClasses.Length & el.Count > 0)
+                {
+                    Console.WriteLine(el.Name + " встречается в некоторых классах параллели");
+                }
+                if (el.Count == 0)
+                {
+                    Console.WriteLine(el.Name + " не встречается ни в одном классе параллели");
+                }
+            }
             Console.WriteLine("Fiveth task");
             DateTime[] dates = new DateTime[5];
             dates[0] = new DateTime(2015, 7, 3);
-            dates[1] = new DateTime(2024, 7, 1);
+            dates[1] = new DateTime(2024, 7, 4, 23, 59, 59);
             dates[2] = new DateTime(2024, 4, 1);
             dates[3] = new DateTime(2023, 12, 13);
-            dates[4] = new DateTime(2024, 7, 4);
+            dates[4] = new DateTime(2024, 7, 4, 22, 31, 48);
             var variant11 = new DatesVariant11(dates);
-            Console.WriteLine(variant11.GetNearestDate(DateTime.Now.Date).Date);
+            Console.WriteLine(variant11.GetNearestDate(DateTime.Now.Date));
             Console.WriteLine("Sixth task");
             DataStructuresVariant7<int> stack = new DataStructuresVariant7<int>();
             stack.Push(10);

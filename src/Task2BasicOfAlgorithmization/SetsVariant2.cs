@@ -5,12 +5,14 @@ namespace Task2BasicOfAlgorithmization
 {
     static class SetsVariant2
     {
-        public static void Check(string[] names, string[][] namesOfClasses)
+        public static Popylarity[] Check(string[] names, string[][] namesOfClasses)
         {
-            int[] counts = new int[names.Length];
-            for (int i = 0; i < counts.Length; i++)
+            //int[] counts = new int[names.Length];
+            Popylarity[] data = new Popylarity[names.Length];
+            for (int i = 0; i < data.Length; i++)
             {
-                counts[i] = 0;
+                //counts[i] = 0;
+                data[i] = new Popylarity(names[i]);
             }
             for (int i = 0; i < names.Length; i++)
             {
@@ -18,11 +20,13 @@ namespace Task2BasicOfAlgorithmization
                 {
                     if (namesOfClasses[j].Contains(names[i]))
                     {
-                        counts[i] += 1;
+                        //counts[i] += 1;
+                        data[i].Count = data[i].Count + 1;
                     }
                 }
             }
-            for (int i = 0; i < counts.Length; i++)
+            return data;
+            /*for (int i = 0; i < counts.Length; i++)
             {
                 if (counts[i] == namesOfClasses.Length)
                 {
@@ -36,6 +40,18 @@ namespace Task2BasicOfAlgorithmization
                 {
                     Console.WriteLine(names[i] + " не встречается ни в одном классе параллели");
                 }
+            }*/
+        }
+        public struct Popylarity
+        {
+            private readonly string name;
+            private int count;
+            public string Name { get { return name; } }
+            public int Count { get { return count; } set { count = value; } }
+            public Popylarity(string name, int count=0)
+            {
+                this.name = name;
+                this.count = count;
             }
         }
     }

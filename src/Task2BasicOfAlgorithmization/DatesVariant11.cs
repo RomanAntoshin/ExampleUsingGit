@@ -11,13 +11,13 @@ namespace Task2BasicOfAlgorithmization
         }
         public DateTime GetNearestDate(DateTime dateTime)
         {
-            int min = Math.Abs((dates[0] - dateTime).Days);
+            long min = Math.Abs((dates[0] - dateTime).Ticks);
             int minInd = 0;
             for (int i = 1; i < dates.Length; i++)
             {
-                if (Math.Abs((dates[i] - dateTime).Days) < min)
+                if (Math.Abs((dates[i] - dateTime).Ticks) < min)
                 {
-                    min = Math.Abs(dates[i].Day - dateTime.Day);
+                    min = Math.Abs(dates[i].Ticks - dateTime.Ticks);
                     minInd = i;
                 }
             }
