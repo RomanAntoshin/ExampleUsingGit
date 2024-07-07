@@ -10,7 +10,7 @@ namespace Task2BasicOfAlgorithmization
         {
             try
             {
-                if(allLegCount<0 || allLegCount%2!=0)
+                if (allLegCount < 0 || allLegCount % 2 != 0)
                 {
                     throw new Exception("Invalid data");
                 }
@@ -22,11 +22,10 @@ namespace Task2BasicOfAlgorithmization
                     rabbitCount = i;
                     gooseCount = (allLegCount - rabbitCount * rabbitLegCount) / gooseLegCount;
                     counts[i] = new GoouseAndRabbitCount(rabbitCount, gooseCount);
-                    //Console.WriteLine(rabbitCount + " - rabit " + gooseCount + " - goose");
                 }
                 return counts;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
                 throw;

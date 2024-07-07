@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.IO;
 namespace Task2BasicOfAlgorithmization
 {
     class Program
@@ -27,14 +27,24 @@ namespace Task2BasicOfAlgorithmization
             }
             Console.WriteLine("Second task:");
             var variants = CyclesVariant5.GetAnimalsCount(64);
-            foreach(var el in variants)
+            foreach (var el in variants)
             {
                 Console.WriteLine(el.Rabbit + " - rabit " + el.Goose + " - goose");
             }
-            //CyclesVariant5.GetAnimalsCount(64);
             Console.WriteLine("Third task");
-            var strVar5 = new StringVariant5("E:\\Git\\STM_labs_Practice\\STM_labs_Practice\\src\\Task2BasicOfAlgorithmization\\INPUT.txt");
-            strVar5.CheckAndWrite();
+            StreamReader reader = new StreamReader("INPUT.txt");
+            var strVar5 = new StringVariant5(reader.ReadLine());
+            var writer = new StreamWriter("OUTPUT.txt");
+            if (strVar5.Check())
+            {
+                writer.Write("Yes");
+            }
+            else
+            {
+                writer.Write("No");
+            }
+            writer.Close();
+            Console.WriteLine("Result in file OUTPUT.txt");
             Console.WriteLine("Fourth task");
             string[] names = { "Алина", "Анна", "Валерия", "Дарья", "Ксения", "Мария", "Нелли", "Ольга", "Полина", "Рина", "Светлана", "Татьяна", "Ульяна", "Федора" };
             string[][] namesOfClasses = new string[4][];
@@ -43,7 +53,7 @@ namespace Task2BasicOfAlgorithmization
             namesOfClasses[2] = new string[] { "Ксения", "Нелли", "Евгения", "Дарья", "Полина" };
             namesOfClasses[3] = new string[] { "Ксения", "Алена", "Дарья" };
             var data = SetsVariant2.Check(names, namesOfClasses);
-            foreach(var el in data)
+            foreach (var el in data)
             {
                 if (el.Count == namesOfClasses.Length)
                 {
@@ -73,7 +83,7 @@ namespace Task2BasicOfAlgorithmization
             stack.Push(20);
             stack.Push(30);
             Console.WriteLine(stack.Peek());
-            while(stack.Count>0)
+            while (stack.Count > 0)
             {
                 Console.WriteLine(stack.Pop());
             }

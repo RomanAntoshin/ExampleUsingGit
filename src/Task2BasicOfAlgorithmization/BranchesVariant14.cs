@@ -10,7 +10,7 @@ namespace Task2BasicOfAlgorithmization
         {
             try
             {
-                if(sides.Length!=3)
+                if (sides.Length != 3)
                 {
                     throw new Exception("Invalid data");
                 }
@@ -26,9 +26,8 @@ namespace Task2BasicOfAlgorithmization
 
             try
             {
-                if(sides==null)
+                if (sides == null)
                 {
-                    //throw new Exception("Null data");
                     throw new NullReferenceException();
                 }
                 for (int i = 0; i < sides.Length; i++)
@@ -48,7 +47,7 @@ namespace Task2BasicOfAlgorithmization
                     return true;
                 }
             }
-            catch(NullReferenceException e)
+            catch (NullReferenceException e)
             {
                 Console.WriteLine($"Error: {e.Message}");
                 throw;
@@ -56,10 +55,6 @@ namespace Task2BasicOfAlgorithmization
         }
         public bool TypeCheck()
         {
-            /*if(!ExistCheck())
-            {
-                throw new Exception("Invalid data");
-            }*/
             try
             {
                 if (!ExistCheck())
@@ -73,20 +68,11 @@ namespace Task2BasicOfAlgorithmization
                 }
                 return Math.Pow(sides[sides.Length - 1], 2) < partSumSquare;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine($"Ошибка: {e.Message}");
                 throw;
             }
-
-            /*if (Math.Pow(sides[sides.Length - 1], 2) < partSumSquare)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }*/
         }
     }
 }
