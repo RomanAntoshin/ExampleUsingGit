@@ -33,15 +33,13 @@ namespace Task2BasicOfAlgorithmization
         }
         public struct GoouseAndRabbitCount
         {
-            private readonly int rabbit;
-            private readonly int goose;
             public GoouseAndRabbitCount(int rabbit, int goose)
             {
-                this.rabbit = rabbit;
-                this.goose = goose;
+                Rabbit = rabbit;
+                Goose = goose;
             }
-            public int Rabbit { get { return rabbit; } }
-            public int Goose { get { return goose; } }
+            public int Rabbit { get; }
+            public int Goose { get; }
         }
     }
 }

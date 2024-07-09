@@ -26,14 +26,12 @@ namespace Task2BasicOfAlgorithmization
         }
         public struct Popylarity
         {
-            private readonly string name;
-            private int count;
-            public string Name { get { return name; } }
-            public int Count { get { return count; } set { count = value; } }
+            public string Name { get; }
+            public int Count { get; set; }
             public Popylarity(string name, int count = 0)
             {
-                this.name = name;
-                this.count = count;
+                Name = name;
+                Count = count;
             }
         }
     }
