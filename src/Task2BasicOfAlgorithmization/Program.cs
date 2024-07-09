@@ -7,7 +7,7 @@ namespace Task2BasicOfAlgorithmization
         static void Main(string[] args)
         {
             Console.WriteLine("First task:");
-            double[] sides = new double[] { 6, 8, 9 };
+            double[] sides = new double[] { 1, 1, 2 };
             var branches = new BranchesVariant14(sides);
             if (branches.ExistCheck())
             {

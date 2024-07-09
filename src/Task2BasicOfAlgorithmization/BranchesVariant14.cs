@@ -19,39 +19,20 @@ namespace Task2BasicOfAlgorithmization
             catch (Exception e)
             {
                 Console.WriteLine($"Error: {e.Message}");
+                throw;
             }
         }
         public bool ExistCheck()
         {
-
-            try
+            for (int i = 0; i < sides.Length; i++)
             {
-                if (sides == null)
-                {
-                    throw new NullReferenceException();
-                }
-                for (int i = 0; i < sides.Length; i++)
-                {
-                    if (sides[i] <= 0)
-                    {
-                        return false;
-                    }
-                }
-                Array.Sort(sides);
-                if (sides.Take(sides.Length - 1).Sum() <= sides[sides.Length - 1])
+                if (sides[i] <= 0)
                 {
                     return false;
                 }
-                else
-                {
-                    return true;
-                }
             }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine($"Error: {e.Message}");
-                throw;
-            }
+            Array.Sort(sides);
+            return sides.Take(sides.Length - 1).Sum() > sides[sides.Length - 1];
         }
         public bool TypeCheck()
         {
