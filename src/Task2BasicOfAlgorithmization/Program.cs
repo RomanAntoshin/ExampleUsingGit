@@ -32,18 +32,24 @@ namespace Task2BasicOfAlgorithmization
                 Console.WriteLine(el.Rabbit + " - rabit " + el.Goose + " - goose");
             }
             Console.WriteLine("Third task");
-            StreamReader reader = new StreamReader("INPUT.txt");
-            var strVar5 = new StringVariant5(reader.ReadLine());
-            var writer = new StreamWriter("OUTPUT.txt");
-            if (strVar5.Check())
+            StringVariant5 strVar5;
+            using (StreamReader reader = new StreamReader("INPUT.txt"))
             {
-                writer.Write("Yes");
+                strVar5 = new StringVariant5(reader.ReadLine());
+                reader.Close();
             }
-            else
+            using (var writer = new StreamWriter("OUTPUT.txt"))
             {
-                writer.Write("No");
+                if (strVar5.Check())
+                {
+                    writer.Write("Yes");
+                }
+                else
+                {
+                    writer.Write("No");
+                }
+                writer.Close();
             }
-            writer.Close();
             Console.WriteLine("Result in file OUTPUT.txt");
             Console.WriteLine("Fourth task");
             string[] names = { "Алина", "Анна", "Валерия", "Дарья", "Ксения", "Мария", "Нелли", "Ольга", "Полина", "Рина", "Светлана", "Татьяна", "Ульяна", "Федора" };
