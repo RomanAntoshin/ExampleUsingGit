@@ -29,7 +29,7 @@ namespace Task3DelegatesEventsExceptions
             var del = SquareTrinomial.GetMethod(0, 2, 3);
             Console.WriteLine(del());
             LimitedStringLoader limited = new LimitedStringLoader("ABC", "DEF", 0);
-            limited.Load("INPUT.txt");
+            limited.Load("INPUT.tx");
             //Console.WriteLine(SquareTrinomial.GetMethod(1, 2, 3));
         }
     }

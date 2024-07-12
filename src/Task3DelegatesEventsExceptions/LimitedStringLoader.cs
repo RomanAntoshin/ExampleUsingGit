@@ -47,29 +47,37 @@ namespace Task3DelegatesEventsExceptions
         public List<string> Data { get { return data; } }
         public void Load(string filename)
         {
-            data = new List<string>();
-            using (var reader=new StreamReader(filename))
+            try
             {
-                //Console.WriteLine(reader.ReadLine()[0]);
-                try
+                using (var reader = new StreamReader(filename))
                 {
-                    int i = 0;
-                    while(!reader.EndOfStream)
+                    //Console.WriteLine(reader.ReadLine()[0]);
+                    try
                     {
-                        string buf = reader.ReadLine();
-                        if(!(buf[0]>='A'&& buf[0]<='Z'))
+                        data = new List<string>();
+                        int i = 0;
+                        while (!reader.EndOfStream)
                         {
-                            throw new IncorrectString("IncorrectString", i);
+                            string buf = reader.ReadLine();
+                            if (!(buf[0] >= 'A' && buf[0] <= 'Z'))
+                            {
+                                throw new IncorrectString("IncorrectString", i);
+                            }
+                            i++;
                         }
                     }
-                }
-                catch(IncorrectString e)
-                {
-                    Console.WriteLine(e.Message);
-                    throw;
+                    catch (IncorrectString e)
+                    {
+                        Console.WriteLine(e.Message);
+                        throw;
+                    }
                 }
             }
-
+            catch(System.IO.FileNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
         }
         class InconsistentLimits: Exception
         {
@@ -77,12 +85,15 @@ namespace Task3DelegatesEventsExceptions
         }
         class IncorrectString: Exception
         {
+            protected string message;
             protected readonly int number;
             public int Number { get { return number; } }
+            new public string Message { get { return message; } }
             public IncorrectString(string message, int number): base(message)
             {
                 this.number = number;
-                message = message + ": " + number.ToString();
+                this.message = base.Message + ": " + number.ToString();
+                //this.message = message + ": " + number.ToString();
             }
         }
         //class 
