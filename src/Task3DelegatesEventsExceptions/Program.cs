@@ -21,7 +21,7 @@ namespace Task3DelegatesEventsExceptions
             calculator += Calculator.Division;
             Console.WriteLine(calculator?.Invoke(1, 8));
             Day day=()=> DaysOfWeek.GetDay();
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine(day());
             }
@@ -34,6 +34,15 @@ namespace Task3DelegatesEventsExceptions
             {
                 Console.WriteLine(el);
             }
+            var first = new ClassWithEvent("First");
+            var second = new ClassWithEvent("Second");
+            var listener = new Listener();
+            //first += listener.Method;
+            first.AddHandler(listener.Method);
+            second.AddHandler(listener.Method);
+            first.GenerateEvent();
+            second.GenerateEvent();
+
             //Console.WriteLine(SquareTrinomial.GetMethod(1, 2, 3));
         }
     }
