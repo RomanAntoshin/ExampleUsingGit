@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,11 +47,43 @@ namespace Task3DelegatesEventsExceptions
         public List<string> Data { get { return data; } }
         public void Load(string filename)
         {
+            data = new List<string>();
+            using (var reader=new StreamReader(filename))
+            {
+                //Console.WriteLine(reader.ReadLine()[0]);
+                try
+                {
+                    int i = 0;
+                    while(!reader.EndOfStream)
+                    {
+                        string buf = reader.ReadLine();
+                        if(!(buf[0]>='A'&& buf[0]<='Z'))
+                        {
+                            throw new IncorrectString("IncorrectString", i);
+                        }
+                    }
+                }
+                catch(IncorrectString e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
 
         }
         class InconsistentLimits: Exception
         {
             public InconsistentLimits(string message): base(message) { }
+        }
+        class IncorrectString: Exception
+        {
+            protected readonly int number;
+            public int Number { get { return number; } }
+            public IncorrectString(string message, int number): base(message)
+            {
+                this.number = number;
+                message = message + ": " + number.ToString();
+            }
         }
         //class 
     }
