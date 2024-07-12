@@ -63,14 +63,23 @@ namespace Task3DelegatesEventsExceptions
                             {
                                 throw new IncorrectString("IncorrectString", i);
                             }
+                            if(erroneus.Contains(buf[0]))
+                            {
+                                throw new WrongStartingSymbol("Ave", i, buf[0]);
+                            }
                             i++;
                         }
+                    }
+                    catch (WrongStartingSymbol e)
+                    {
+                        Console.WriteLine(e.Message);
+                        throw;
                     }
                     catch (IncorrectString e)
                     {
                         Console.WriteLine(e.Message);
                         throw;
-                    }
+                    }                 
                 }
             }
             catch(System.IO.FileNotFoundException e)
@@ -88,12 +97,22 @@ namespace Task3DelegatesEventsExceptions
             protected string message;
             protected readonly int number;
             public int Number { get { return number; } }
-            new public string Message { get { return message; } }
+            new public string Message { get { return message; } /*set { message = value; }*/ }
             public IncorrectString(string message, int number): base(message)
             {
                 this.number = number;
                 this.message = base.Message + ": " + number.ToString();
                 //this.message = message + ": " + number.ToString();
+            }
+        }
+        class WrongStartingSymbol: IncorrectString
+        {
+            private char symbol;
+            public WrongStartingSymbol(string message, int number, char symbol): base(message, number)
+            {
+                this.symbol = symbol;
+                base.message = message + " " + symbol.ToString();
+                //base.Message=
             }
         }
         //class 
