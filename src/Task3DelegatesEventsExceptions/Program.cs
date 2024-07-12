@@ -28,8 +28,12 @@ namespace Task3DelegatesEventsExceptions
             SquareTrinomial trinomial = new SquareTrinomial(10);
             var del = SquareTrinomial.GetMethod(0, 2, 3);
             Console.WriteLine(del());
-            LimitedStringLoader limited = new LimitedStringLoader("ABC", "DEF", 0);
+            LimitedStringLoader limited = new LimitedStringLoader("ABC", "DEF", 2);
             limited.Load("INPUT.txt");
+            foreach(var el in limited.Data)
+            {
+                Console.WriteLine(el);
+            }
             //Console.WriteLine(SquareTrinomial.GetMethod(1, 2, 3));
         }
     }

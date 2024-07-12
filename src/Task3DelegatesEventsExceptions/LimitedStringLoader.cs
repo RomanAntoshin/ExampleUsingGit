@@ -44,7 +44,25 @@ namespace Task3DelegatesEventsExceptions
                 throw;
             }
         }
-        public List<string> Data { get { return data; } }
+        public List<string> Data 
+        { 
+            get 
+            {
+                try
+                {
+                    if(data==null)
+                    {
+                        throw new DataNotLoaded("DataNotLoaded");
+                    }
+                    return data;
+                }
+                catch(DataNotLoaded e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+        }
         public void Load(string filename)
         {
             try
@@ -55,18 +73,35 @@ namespace Task3DelegatesEventsExceptions
                     try
                     {
                         data = new List<string>();
+                        int defect = 0;
                         int i = 0;
                         while (!reader.EndOfStream)
                         {
                             string buf = reader.ReadLine();
                             if (!(buf[0] >= 'A' && buf[0] <= 'Z'))
                             {
-                                throw new IncorrectString("IncorrectString", i);
+                                data.Clear();
+                                throw new IncorrectString("IncorrectString in string", i);
                             }
                             if(erroneus.Contains(buf[0]))
                             {
-                                throw new WrongStartingSymbol("Ave", i, buf[0]);
+                                data.Clear();
+                                throw new WrongStartingSymbol("WrongStartSymbol in string ", i, buf[0]);
                             }
+                            if(prohibited.Contains(buf[0]))
+                            {
+                                defect++;
+                                if(defect>proLimit)
+                                {
+                                    data.Clear();
+                                    throw new TooManyProhibitedLines("TooManyProhibitedLines");
+                                }
+                            }
+                            else
+                            {
+                                data.Add(buf);
+                            }
+                            //data.Add(buf);
                             i++;
                         }
                     }
@@ -79,7 +114,16 @@ namespace Task3DelegatesEventsExceptions
                     {
                         Console.WriteLine(e.Message);
                         throw;
-                    }                 
+                    }
+                    catch(TooManyProhibitedLines e)
+                    {
+                        Console.WriteLine(e.Message);
+                        throw;
+                    }
+                    finally
+                    {
+                        reader.Close();
+                    }
                 }
             }
             catch(System.IO.FileNotFoundException e)
@@ -101,7 +145,7 @@ namespace Task3DelegatesEventsExceptions
             public IncorrectString(string message, int number): base(message)
             {
                 this.number = number;
-                this.message = base.Message + ": " + number.ToString();
+                this.message = base.Message + number.ToString();
                 //this.message = message + ": " + number.ToString();
             }
         }
@@ -111,10 +155,17 @@ namespace Task3DelegatesEventsExceptions
             public WrongStartingSymbol(string message, int number, char symbol): base(message, number)
             {
                 this.symbol = symbol;
-                base.message = message + " " + symbol.ToString();
+                base.message = base.message + ": " + symbol.ToString();
                 //base.Message=
             }
         }
-        //class 
+        class TooManyProhibitedLines:Exception
+        {
+            public TooManyProhibitedLines(string message) : base(message) { }
+        }
+        class DataNotLoaded: Exception
+        {
+            public DataNotLoaded(string message) : base(message) { }
+        }
     }
 }
