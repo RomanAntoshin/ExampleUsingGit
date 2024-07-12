@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace Task3DelegatesEventsExceptions
 {
@@ -15,52 +13,31 @@ namespace Task3DelegatesEventsExceptions
         private List<string> data;
         public LimitedStringLoader(string prohibited, string erroneus, int proLimit)
         {
-            try
+            var inter = prohibited.Intersect(erroneus);
+            if (inter.Any())
             {
-                var inter = prohibited.Intersect(erroneus);
-                if (inter.Any())
-                {
-                    throw new InconsistentLimits("Uncorrect limits: "+string.Join(", ", inter));
-                }
-                //if(inter.)
-                /*if (prohibited.Any(s => erroneus.Contains(s)))
-                {
-                    throw new Exception(s);
-                }*/
-                this.erroneus = erroneus;
-                this.prohibited = prohibited;
-                if (proLimit < 0)
-                {
-                    this.proLimit = 0;
-                }
-                else
-                {
-                    this.proLimit = proLimit;
-                }
+                throw new InconsistentLimits(string.Join(", ", inter));
             }
-            catch(InconsistentLimits e)
+            this.erroneus = erroneus;
+            this.prohibited = prohibited;
+            if (proLimit < 0)
             {
-                Console.WriteLine(e.Message);
-                throw;
+                this.proLimit = 0;
+            }
+            else
+            {
+                this.proLimit = proLimit;
             }
         }
-        public List<string> Data 
-        { 
-            get 
+        public List<string> Data
+        {
+            get
             {
-                try
+                if (data == null)
                 {
-                    if(data==null)
-                    {
-                        throw new DataNotLoaded("DataNotLoaded");
-                    }
-                    return data;
+                    throw new DataNotLoaded();
                 }
-                catch(DataNotLoaded e)
-                {
-                    Console.WriteLine(e.Message);
-                    throw;
-                }
+                return data;
             }
         }
         public void Load(string filename)
@@ -69,7 +46,6 @@ namespace Task3DelegatesEventsExceptions
             {
                 using (var reader = new StreamReader(filename))
                 {
-                    //Console.WriteLine(reader.ReadLine()[0]);
                     try
                     {
                         data = new List<string>();
@@ -81,44 +57,28 @@ namespace Task3DelegatesEventsExceptions
                             if (!(buf[0] >= 'A' && buf[0] <= 'Z'))
                             {
                                 data.Clear();
-                                throw new IncorrectString("IncorrectString in string", i);
+                                throw new IncorrectString(i);
                             }
-                            if(erroneus.Contains(buf[0]))
+                            if (erroneus.Contains(buf[0]))
                             {
                                 data.Clear();
-                                throw new WrongStartingSymbol("WrongStartSymbol in string ", i, buf[0]);
+                                throw new WrongStartingSymbol(i, buf[0]);
                             }
-                            if(prohibited.Contains(buf[0]))
+                            if (prohibited.Contains(buf[0]))
                             {
                                 defect++;
-                                if(defect>proLimit)
+                                if (defect > proLimit)
                                 {
                                     data.Clear();
-                                    throw new TooManyProhibitedLines("TooManyProhibitedLines");
+                                    throw new TooManyProhibitedLines();
                                 }
                             }
                             else
                             {
                                 data.Add(buf);
                             }
-                            //data.Add(buf);
                             i++;
                         }
-                    }
-                    catch (WrongStartingSymbol e)
-                    {
-                        Console.WriteLine(e.Message);
-                        throw;
-                    }
-                    catch (IncorrectString e)
-                    {
-                        Console.WriteLine(e.Message);
-                        throw;
-                    }
-                    catch(TooManyProhibitedLines e)
-                    {
-                        Console.WriteLine(e.Message);
-                        throw;
                     }
                     finally
                     {
@@ -126,46 +86,42 @@ namespace Task3DelegatesEventsExceptions
                     }
                 }
             }
-            catch(System.IO.FileNotFoundException e)
+            catch (System.IO.FileNotFoundException e)
             {
-                Console.WriteLine(e.Message);
                 throw;
             }
         }
-        class InconsistentLimits: Exception
+        class InconsistentLimits : Exception
         {
-            public InconsistentLimits(string message): base(message) { }
+            public InconsistentLimits(string message) : base("Uncorrect limits: " + message) { }
         }
-        class IncorrectString: Exception
+        class IncorrectString : Exception
         {
-            protected string message;
-            protected readonly int number;
+            private readonly int number;
             public int Number { get { return number; } }
-            new public string Message { get { return message; } /*set { message = value; }*/ }
-            public IncorrectString(string message, int number): base(message)
+            public IncorrectString(int number) : base("Incorrect string: " + number.ToString())
             {
                 this.number = number;
-                this.message = base.Message + number.ToString();
-                //this.message = message + ": " + number.ToString();
             }
         }
-        class WrongStartingSymbol: IncorrectString
+        class WrongStartingSymbol : Exception
         {
-            private char symbol;
-            public WrongStartingSymbol(string message, int number, char symbol): base(message, number)
+            private readonly char symbol;
+            private readonly int number;
+            public WrongStartingSymbol(int number, char symbol) : base("WrongStartingSymbol at line " + number.ToString() + ": " + symbol.ToString())
             {
                 this.symbol = symbol;
-                base.message = base.message + ": " + symbol.ToString();
-                //base.Message=
+                this.number = number;
             }
+
         }
-        class TooManyProhibitedLines:Exception
+        class TooManyProhibitedLines : Exception
         {
-            public TooManyProhibitedLines(string message) : base(message) { }
+            public TooManyProhibitedLines() : base("TooManyProhibitedLines") { }
         }
-        class DataNotLoaded: Exception
+        class DataNotLoaded : Exception
         {
-            public DataNotLoaded(string message) : base(message) { }
+            public DataNotLoaded() : base("DataNotLoaded") { }
         }
     }
 }
