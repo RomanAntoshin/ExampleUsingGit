@@ -11,6 +11,7 @@ namespace Task3DelegatesEventsExceptions
         private string prohibited;
         private string erroneus;
         private int proLimit;
+        private List<string> data;
         public LimitedStringLoader(string prohibited, string erroneus, int proLimit)
         {
             try
@@ -27,7 +28,14 @@ namespace Task3DelegatesEventsExceptions
                 }*/
                 this.erroneus = erroneus;
                 this.prohibited = prohibited;
-                this.proLimit = proLimit;
+                if (proLimit < 0)
+                {
+                    this.proLimit = 0;
+                }
+                else
+                {
+                    this.proLimit = proLimit;
+                }
             }
             catch(InconsistentLimits e)
             {
@@ -35,9 +43,15 @@ namespace Task3DelegatesEventsExceptions
                 throw;
             }
         }
+        public List<string> Data { get { return data; } }
+        public void Load(string filename)
+        {
+
+        }
         class InconsistentLimits: Exception
         {
             public InconsistentLimits(string message): base(message) { }
         }
+        //class 
     }
 }
