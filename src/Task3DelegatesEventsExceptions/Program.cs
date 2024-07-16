@@ -31,9 +31,11 @@ namespace Task3DelegatesEventsExceptions
                 Console.WriteLine(day2());
             }
             Console.WriteLine("Third task:");
-            SquareTrinomial trinomial = new SquareTrinomial(10);
-            var del = SquareTrinomial.GetMethod(0, 2, 3);
-            Console.WriteLine(del());
+            var del = SquareTrinomial.GetMethod(1, 1, 1);
+            var del2 = SquareTrinomial.GetMethod(-1, -1, -1);
+            Console.WriteLine(del(4));
+            Console.WriteLine(del(-1));
+            Console.WriteLine(del2(10));
             Console.WriteLine("Fourth task:");
             var first = new ClassWithEvent("First");
             var second = new ClassWithEvent("Second");
