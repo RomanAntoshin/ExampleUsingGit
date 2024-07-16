@@ -21,10 +21,14 @@ namespace Task3DelegatesEventsExceptions
             calculator += Calculator.Division;
             Console.WriteLine(calculator?.Invoke(1, 8));
             Console.WriteLine("Second task:");
-            Day day = () => DaysOfWeek.GetDay();
+            DaysOfWeek week = new DaysOfWeek();
+            DaysOfWeek week2 = new DaysOfWeek();
+            Day day = () => week.GetDay();
+            Day day2 = () => week2.GetDay();
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine(day());
+                Console.WriteLine(day2());
             }
             Console.WriteLine("Third task:");
             SquareTrinomial trinomial = new SquareTrinomial(10);

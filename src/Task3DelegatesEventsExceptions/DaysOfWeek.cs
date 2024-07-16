@@ -1,10 +1,10 @@
 ﻿namespace Task3DelegatesEventsExceptions
 {
-    static class DaysOfWeek
+    class DaysOfWeek
     {
-        private static int count;
+        private int count;
         private static string[] days = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
-        public static string GetDay()
+        public string GetDay()
         {
             if (count == days.Length)
             {
