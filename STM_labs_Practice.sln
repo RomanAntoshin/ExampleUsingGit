@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.33927.289
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1SampleGit", "src\Task1SampleGit\Task1SampleGit.csproj", "{6F9A4B02-2F99-4104-8CEB-7E7E25D3635C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2BasicOfAlgorithmization", "src\Task2BasicOfAlgorithmization\Task2BasicOfAlgorithmization.csproj", "{88599355-B951-48F9-B910-4909B5F3F5C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2BasicOfAlgorithmization", "src\Task2BasicOfAlgorithmization\Task2BasicOfAlgorithmization.csproj", "{88599355-B951-48F9-B910-4909B5F3F5C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4OOP", "Task4OOP\Task4OOP.csproj", "{9EE3FC14-8FE9-4FC0-9A9D-C1801E706501}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{88599355-B951-48F9-B910-4909B5F3F5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88599355-B951-48F9-B910-4909B5F3F5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88599355-B951-48F9-B910-4909B5F3F5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE3FC14-8FE9-4FC0-9A9D-C1801E706501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE3FC14-8FE9-4FC0-9A9D-C1801E706501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE3FC14-8FE9-4FC0-9A9D-C1801E706501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE3FC14-8FE9-4FC0-9A9D-C1801E706501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
