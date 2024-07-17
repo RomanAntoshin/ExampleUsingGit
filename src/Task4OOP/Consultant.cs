@@ -6,6 +6,7 @@ namespace Task4OOP
     {
         private IList<Client> clients;
         public int Length { get { return clients.Count; } }
+        public IList<Client> Clients { get { return clients; } }
         public Consultant(Client client)
         {
             this.clients = new Client[] { client };
