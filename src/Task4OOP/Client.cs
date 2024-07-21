@@ -4,12 +4,12 @@ namespace Task4OOP
 {
     class Client
     {
-        private string surname;
-        private string name;
+        //private string surname;
+        /*private string name;
         private string patronymic;
         private string phoneNumber;
         private string seriesPasport;
-        private string numberPasport;
+        private string numberPasport;*/
         private List<History> history = new List<History>();
         public string Surname { get; set; }
         public string Name { get; set; }

@@ -30,14 +30,33 @@ namespace Task4OOP
             if(change=="1")
             {
                 Console.WriteLine("Consultant");
+                Consultant consultant = new Consultant(data);
+                for(int i=0; i<consultant.Length; i++)
+                {
+                    //Console.WriteLine(consultant.Clients[i].Name);
+                    //Console.WriteLine(consultant.Clients[i].PrintSecret());
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        string str = JsonSerializer.Serialize(consultant.Clients);
+                        writer.Write(str);
+                        writer.Close();
+                    }
+                }
+                consultant.ChangePhoneNumber(1, "8 444 444 44 44");
+                consultant.ChangePhoneNumber(0, "");
+                WriteFile(consultant, filePath);
+                for (int i = 0; i < consultant.Length; i++)
+                {
+                    Console.WriteLine(consultant.Clients[i].PrintSecret());
+                }
             }
             else
             {
                 Console.WriteLine("Manager");
+
             }
-            Client pasha = new Client("Pavlov", "Pavel", "Pavlovich", "8 922 923 24 25", "1111", "222222");
+            /*Client pasha = new Client("Pavlov", "Pavel", "Pavlovich", "8 922 923 24 25", "1111", "222222");
             Manager consultant = new Manager(data);
-            //Console.WriteLine(pasha.History.Count);
             consultant.AddClient(pasha);
             consultant.AddClient("Ave", "Ave", "Ave", "03", "8888", "000001");
 
@@ -47,16 +66,18 @@ namespace Task4OOP
             for (int i = 0; i < consultant.Length; i++)
             {
                 Console.WriteLine(consultant.View(i));
-            }
-            /*Console.WriteLine(consultant.View(0));
-            Console.WriteLine(consultant.View(1));*/
+            }*/
+            
+
+        }
+        static void WriteFile(Consultant consultant, string filePath)
+        {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 string str = JsonSerializer.Serialize(consultant.Clients);
                 writer.Write(str);
                 writer.Close();
             }
-
         }
     }
 }
