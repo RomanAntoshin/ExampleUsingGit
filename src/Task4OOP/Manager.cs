@@ -22,6 +22,7 @@ namespace Task4OOP
         public void AddClient(Client client)
         {
             this.clients.Add(client);
+            client.History.Add(new History(DateTime.Now, "All", "Add", "Manager"));
         }
         public void ChangeName(int ind, string name)
         {

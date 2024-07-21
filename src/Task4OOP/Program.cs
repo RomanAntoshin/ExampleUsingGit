@@ -37,6 +37,7 @@ namespace Task4OOP
             }
             Client pasha = new Client("Pavlov", "Pavel", "Pavlovich", "8 922 923 24 25", "1111", "222222");
             Manager consultant = new Manager(data);
+            //Console.WriteLine(pasha.History.Count);
             consultant.AddClient(pasha);
             consultant.AddClient("Ave", "Ave", "Ave", "03", "8888", "000001");
 

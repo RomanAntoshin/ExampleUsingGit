@@ -1,4 +1,7 @@
-﻿namespace Task4OOP
+﻿using System;
+using System.Collections.Generic;
+
+namespace Task4OOP
 {
     class Client
     {
@@ -8,12 +11,14 @@
         private string phoneNumber;
         private string seriesPasport;
         private string numberPasport;
+        private List<History> history=new List<History>();
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public string PhoneNumber { get; set; }
         public string SeriesPasport { get; set; }
         public string NumberPasport { get; set; }
+        public List<History> History { get { return history; }}
         public Client(string surname, string name, string patronymic, string phoneNumber, string seriesPasport, string numberPasport)
         {
             Surname = surname;
@@ -22,6 +27,8 @@
             PhoneNumber = phoneNumber;
             SeriesPasport = seriesPasport;
             NumberPasport = numberPasport;
+            //history.Add(new History(DateTime.Now, "All", "Add", "Manager"));
+            //history = new List<History>();
         }
 
     }
