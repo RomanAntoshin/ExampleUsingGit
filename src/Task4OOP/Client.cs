@@ -8,12 +8,12 @@
         private string phoneNumber;
         private string seriesPasport;
         private string numberPasport;
-        public string Surname { get; }
-        public string Name { get; }
-        public string Patronymic { get; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
         public string PhoneNumber { get; set; }
-        public string SeriesPasport { get; }
-        public string NumberPasport { get; }
+        public string SeriesPasport { get; set; }
+        public string NumberPasport { get; set; }
         public Client(string surname, string name, string patronymic, string phoneNumber, string seriesPasport, string numberPasport)
         {
             Surname = surname;

@@ -20,15 +20,20 @@ namespace Task4OOP
                 data = JsonSerializer.Deserialize<List<Client>>(reader.ReadToEnd());
                 reader.Close();
             }
-            Consultant consultant = new Consultant(data);
+            Client pasha = new Client("Pavlov", "Pavel", "Pavlovich", "8 922 923 24 25", "1111", "222222");
+            Manager consultant = new Manager(data);
+            consultant.AddClient(pasha);
+            consultant.AddClient("Ave", "Ave", "Ave", "03", "8888", "000001");
+
+            consultant.ChangePhoneNumber(1, "8 444 444 44 44");
+            consultant.ChangePhoneNumber(0, "");
+            consultant.ChangeName(0, "Серега");
             for (int i = 0; i < consultant.Length; i++)
             {
                 Console.WriteLine(consultant.View(i));
             }
-            consultant.ChangePhoneNumber(1, "8 444 444 44 44");
-            consultant.ChangePhoneNumber(0, "");
-            Console.WriteLine(consultant.View(0));
-            Console.WriteLine(consultant.View(1));
+            /*Console.WriteLine(consultant.View(0));
+            Console.WriteLine(consultant.View(1));*/
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 string str = JsonSerializer.Serialize(consultant.Clients);
