@@ -10,7 +10,7 @@ namespace Task4OOP
         private string phoneNumber;
         private string seriesPasport;
         private string numberPasport;*/
-        private List<History> history = new List<History>();
+        private List<History> history/* = new List<History>()*/;
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
@@ -26,6 +26,10 @@ namespace Task4OOP
             PhoneNumber = phoneNumber;
             SeriesPasport = seriesPasport;
             NumberPasport = numberPasport;
+            if(this.history==null)
+            {
+                this.history = new List<History>();
+            }
             //history.Add(new History(DateTime.Now, "All", "Add", "Manager"));
             //history = new List<History>();
         }

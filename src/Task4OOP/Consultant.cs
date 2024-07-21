@@ -24,7 +24,7 @@ namespace Task4OOP
             if (phoneNumber != "")
             {
                 clients[ind].PhoneNumber = phoneNumber;
-                WriteChange(ind, phoneNumber);
+                WriteChange(ind, "PhoneNumber");
             }
         }
         public void WriteChange(int ind, string changes)

@@ -27,21 +27,10 @@ namespace Task4OOP
                 change = Console.ReadLine();
             }
             while (change != "1" & change != "2");
-            if(change=="1")
+            if (change == "1")
             {
                 Console.WriteLine("Consultant");
                 Consultant consultant = new Consultant(data);
-                for(int i=0; i<consultant.Length; i++)
-                {
-                    //Console.WriteLine(consultant.Clients[i].Name);
-                    //Console.WriteLine(consultant.Clients[i].PrintSecret());
-                    using (StreamWriter writer = new StreamWriter(filePath))
-                    {
-                        string str = JsonSerializer.Serialize(consultant.Clients);
-                        writer.Write(str);
-                        writer.Close();
-                    }
-                }
                 consultant.ChangePhoneNumber(1, "8 444 444 44 44");
                 consultant.ChangePhoneNumber(0, "");
                 WriteFile(consultant, filePath);
@@ -53,22 +42,17 @@ namespace Task4OOP
             else
             {
                 Console.WriteLine("Manager");
-
+                Manager manager = new Manager(data);
+                manager.ChangeName(0, "Серега");
+                manager.ChangePatronymic(1, "Ave");
+                manager.ChangeName(1, "Second");
+                //manager.AddClient(new Client("First", "Second", "Third", "8 912 913 14 15", "1112", "876543"));
+                WriteFile(manager, filePath);
+                for (int i = 0; i < manager.Length; i++)
+                {
+                    Console.WriteLine(manager.Clients[i].PrintAll());
+                }
             }
-            /*Client pasha = new Client("Pavlov", "Pavel", "Pavlovich", "8 922 923 24 25", "1111", "222222");
-            Manager consultant = new Manager(data);
-            consultant.AddClient(pasha);
-            consultant.AddClient("Ave", "Ave", "Ave", "03", "8888", "000001");
-
-            consultant.ChangePhoneNumber(1, "8 444 444 44 44");
-            consultant.ChangePhoneNumber(0, "");
-            consultant.ChangeName(0, "Серега");
-            for (int i = 0; i < consultant.Length; i++)
-            {
-                Console.WriteLine(consultant.View(i));
-            }*/
-            
-
         }
         static void WriteFile(Consultant consultant, string filePath)
         {
