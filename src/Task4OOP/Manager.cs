@@ -12,8 +12,9 @@ namespace Task4OOP
         public Manager(IList<Client> clients) : base(clients) { }
         public override string View(int ind)
         {
-            return clients[ind].Surname + "\n" + clients[ind].Name + "\n" + clients[ind].Patronymic + "\n" + clients[ind].PhoneNumber + "\n" + clients[ind].SeriesPasport + "\n" + 
-                clients[ind].NumberPasport + "\n";
+            /*return clients[ind].Surname + "\n" + clients[ind].Name + "\n" + clients[ind].Patronymic + "\n" + clients[ind].PhoneNumber + "\n" + clients[ind].SeriesPasport + "\n" + 
+                clients[ind].NumberPasport + "\n";*/
+            return clients[ind].PrintAll();
         }
         public void AddClient(string surname, string name, string patronymic, string phoneNumber, string seriesPasport, string numberPasport)
         {
