@@ -45,7 +45,7 @@ namespace Task3DelegatesEventsExceptions
             first.GenerateEvent();
             second.GenerateEvent();
             Console.WriteLine("Fiveth task:");
-            LimitedStringLoader limited = new LimitedStringLoader("ABC", "DEF", 2);
+            LimitedStringLoader limited = new LimitedStringLoader("ABC", "DEF", 1);
             limited.Load("INPUT.txt");
             foreach (var el in limited.Data)
             {
