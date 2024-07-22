@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task4OOP
 {
     class History
     {
-        private DateTime dateTime;
-        private string dataChanged;
-        private string type;
-        private string autor;
         public DateTime DateTime { get; }
         public string DataChanged { get; }
         public string Type { get; }

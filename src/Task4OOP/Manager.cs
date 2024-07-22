@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task4OOP
 {
-    class Manager: Consultant, IManager
+    class Manager : Consultant, IManager
     {
         public Manager(Client client) : base(client) { }
         public Manager(IList<Client> clients) : base(clients) { }
         public override string View(int ind)
         {
-            /*return clients[ind].Surname + "\n" + clients[ind].Name + "\n" + clients[ind].Patronymic + "\n" + clients[ind].PhoneNumber + "\n" + clients[ind].SeriesPasport + "\n" + 
-                clients[ind].NumberPasport + "\n";*/
             return clients[ind].PrintAll();
         }
-        /*public void AddClient(string surname, string name, string patronymic, string phoneNumber, string seriesPasport, string numberPasport)
-        {
-            this.clients.Add(new Client(surname, name, patronymic, phoneNumber, seriesPasport, numberPasport));
-        }*/
         public void AddClient(Client client)
         {
             this.clients.Add(client);

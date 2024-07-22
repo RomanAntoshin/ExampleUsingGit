@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task4OOP
+﻿namespace Task4OOP
 {
-    interface IManager: IConsultant
+    interface IManager : IConsultant
     {
-        //string View(int ind);
         void AddClient(Client client);
         void ChangeName(int ind, string name);
         void ChangeSurname(int ind, string surname);
