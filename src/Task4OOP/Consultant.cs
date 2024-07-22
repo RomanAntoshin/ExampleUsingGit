@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Task4OOP
 {
-    class Consultant
+    class Consultant: IConsultant
     {
         protected IList<Client> clients;
         public int Length { get { return clients.Count; } }

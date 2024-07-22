@@ -30,7 +30,7 @@ namespace Task4OOP
             if (change == "1")
             {
                 Console.WriteLine("Consultant");
-                Consultant consultant = new Consultant(data);
+                IConsultant consultant = new Consultant(data);
                 consultant.ChangePhoneNumber(1, "8 444 444 44 44");
                 consultant.ChangePhoneNumber(0, "");
                 WriteFile(consultant, filePath);
@@ -42,11 +42,11 @@ namespace Task4OOP
             else
             {
                 Console.WriteLine("Manager");
-                Manager manager = new Manager(data);
+                IManager manager = new Manager(data);
                 manager.ChangeName(0, "Серега");
                 manager.ChangePatronymic(1, "Ave");
                 manager.ChangeName(1, "Second");
-                manager.AddClient(new Client("First", "Second", "Third", "8 912 913 14 15", "1112", "876543"));
+                //manager.AddClient(new Client("First", "Second", "Third", "8 912 913 14 15", "1112", "876543"));
                 WriteFile(manager, filePath);
                 for (int i = 0; i < manager.Length; i++)
                 {
@@ -54,7 +54,7 @@ namespace Task4OOP
                 }
             }
         }
-        static void WriteFile(Consultant consultant, string filePath)
+        static void WriteFile(IConsultant consultant, string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {

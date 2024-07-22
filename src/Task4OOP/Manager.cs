@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task4OOP
 {
-    class Manager: Consultant
+    class Manager: Consultant, IManager
     {
         public Manager(Client client) : base(client) { }
         public Manager(IList<Client> clients) : base(clients) { }
