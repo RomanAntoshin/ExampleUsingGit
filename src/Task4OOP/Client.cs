@@ -10,14 +10,15 @@ namespace Task4OOP
         private string phoneNumber;
         private string seriesPasport;
         private string numberPasport;*/
-        private List<History> history/* = new List<History>()*/;
+        //private List<History> history/* = new List<History>()*/;
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public string PhoneNumber { get; set; }
         public string SeriesPasport { get; set; }
         public string NumberPasport { get; set; }
-        public List<History> History { get { return history; } }
+        //public List<History> History { get { return history; } set { history = value; } }
+        public List<History> History { get; set; }
         public Client(string surname, string name, string patronymic, string phoneNumber, string seriesPasport, string numberPasport)
         {
             Surname = surname;
@@ -26,9 +27,9 @@ namespace Task4OOP
             PhoneNumber = phoneNumber;
             SeriesPasport = seriesPasport;
             NumberPasport = numberPasport;
-            if(this.history==null)
+            if(History==null)
             {
-                this.history = new List<History>();
+                History = new List<History>();
             }
             //history.Add(new History(DateTime.Now, "All", "Add", "Manager"));
             //history = new List<History>();

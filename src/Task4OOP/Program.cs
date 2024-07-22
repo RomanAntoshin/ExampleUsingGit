@@ -46,7 +46,7 @@ namespace Task4OOP
                 manager.ChangeName(0, "Серега");
                 manager.ChangePatronymic(1, "Ave");
                 manager.ChangeName(1, "Second");
-                //manager.AddClient(new Client("First", "Second", "Third", "8 912 913 14 15", "1112", "876543"));
+                manager.AddClient(new Client("First", "Second", "Third", "8 912 913 14 15", "1112", "876543"));
                 WriteFile(manager, filePath);
                 for (int i = 0; i < manager.Length; i++)
                 {
