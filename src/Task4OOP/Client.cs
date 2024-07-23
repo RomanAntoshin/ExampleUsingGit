@@ -60,5 +60,9 @@ namespace Task4OOP
             }
             History.Add(new History(DateTime.Now, field, "Update", autor));
         }
+        public void AddYourself(string autor)
+        {
+            History.Add(new History(DateTime.Now, "All", "Add", autor));
+        }
     }
 }

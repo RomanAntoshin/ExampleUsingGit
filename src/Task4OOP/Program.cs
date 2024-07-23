@@ -48,12 +48,10 @@ namespace Task4OOP
                 Console.WriteLine("Manager");
                 Power mPower = new PowerManager();
                 IManager manager = new Manager(data, mPower);
-                //manager.ChangeName(0, "Серега");
                 manager.ChangeData(0, "Name", "Серега");
-                //manager.ChangePatronymic(1, "Ave");
                 manager.ChangeData(1, "Patronymic", "Ave");
-                //manager.ChangeName(1, "Second");
-                //manager.AddClient(new Client("Fourth", "Fiveth", "Sixth", "04", "9119", "345678"));
+                manager.AddClient(new Client("Fourth", "Fiveth", "Sixth", "04", "9119", "345678"));
+                manager.ChangeData(manager.Clients.Count - 1, "Surname", "First");
                 WriteFile(manager, filePath);
                 for (int i = 0; i < manager.Length; i++)
                 {

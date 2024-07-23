@@ -14,35 +14,7 @@ namespace Task4OOP
         public void AddClient(Client client)
         {
             this.clients.Add(client);
-            client.History.Add(new History(DateTime.Now, "All", "Add", "Manager"));
+            client.AddYourself("Manager");
         }
-        /*public void ChangeData(int ind, string field, string newData)
-        {
-            power.MakeRequest(clients[ind], field, "Update", newData);
-        }*/
-        /*public void ChangeName(int ind, string name)
-        {
-            power.MakeRequest(clients[ind], "Name", "Update", name);
-        }*/
-        /*public void ChangeSurname(int ind, string surname)
-        {
-            clients[ind].Surname = surname;
-            WriteChange(ind, "Surname");
-        }*/
-        /*public void ChangePatronymic(int ind, string patronymic)
-        {
-            clients[ind].Patronymic = patronymic;
-            WriteChange(ind, "Patronymic");
-        }*/
-        /*public void ChangeSeriesPasport(int ind, string series)
-        {
-            clients[ind].SeriesPasport = series;
-            WriteChange(ind, "SeriesPasport");
-        }*/
-        /*public void ChangeNumberPasport(int ind, string number)
-        {
-            clients[ind].NumberPasport = number;
-            WriteChange(ind, "NumberPasport");
-        }*/
     }
 }
