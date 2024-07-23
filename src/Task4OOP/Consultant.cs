@@ -6,7 +6,7 @@ namespace Task4OOP
     class Consultant : IConsultant
     {
         protected IList<Client> clients;
-        private Power power;
+        protected Power power;
         public int Length { get { return clients.Count; } }
         public IList<Client> Clients { get { return clients; } }
         public Consultant(Client client, Power power)
@@ -23,15 +23,14 @@ namespace Task4OOP
         {
             return clients[ind].PrintSecret();
         }
-        public void ChangePhoneNumber(int ind, string phoneNumber)
+        public void ChangeData(int ind, string field, string newData)
+        {
+            power.MakeRequest(clients[ind], field, "Update", newData);
+        }
+        /*public void ChangePhoneNumber(int ind, string phoneNumber)
         {
             power.MakeRequest(clients[ind], "PhoneNumber", "Update", phoneNumber);
-            /*if (phoneNumber != "")
-            {
-                clients[ind].PhoneNumber = phoneNumber;
-                WriteChange(ind, "PhoneNumber");
-            }*/
-        }
+        }*/
         public void WriteChange(int ind, string changes)
         {
             clients[ind].History.Add(new History(DateTime.Now, changes, "Update", this.GetType().ToString()));

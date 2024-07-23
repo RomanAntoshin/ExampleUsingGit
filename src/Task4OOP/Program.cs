@@ -32,8 +32,11 @@ namespace Task4OOP
                 Console.WriteLine("Consultant");
                 Power cPower = new PowerConsultant();
                 IConsultant consultant = new Consultant(data, cPower);
-                consultant.ChangePhoneNumber(1, "8 444 444 44 44");
-                consultant.ChangePhoneNumber(0, "");
+                consultant.ChangeData(1, "PhoneNumber", "8 444 444 44 44");
+                consultant.ChangeData(1, "Name", "IIIIIIIIIII");
+                //consultant.C
+                //consultant.ChangePhoneNumber(1, "8 444 444 44 44");
+                //consultant.ChangePhoneNumber(0, "");
                 WriteFile(consultant, filePath);
                 for (int i = 0; i < consultant.Length; i++)
                 {
@@ -45,10 +48,12 @@ namespace Task4OOP
                 Console.WriteLine("Manager");
                 Power mPower = new PowerManager();
                 IManager manager = new Manager(data, mPower);
-                manager.ChangeName(0, "Серега");
-                manager.ChangePatronymic(1, "Ave");
-                manager.ChangeName(1, "Second");
-                manager.AddClient(new Client("Fourth", "Fiveth", "Sixth", "04", "9119", "345678"));
+                //manager.ChangeName(0, "Серега");
+                manager.ChangeData(0, "Name", "Серега");
+                //manager.ChangePatronymic(1, "Ave");
+                manager.ChangeData(1, "Patronymic", "Ave");
+                //manager.ChangeName(1, "Second");
+                //manager.AddClient(new Client("Fourth", "Fiveth", "Sixth", "04", "9119", "345678"));
                 WriteFile(manager, filePath);
                 for (int i = 0; i < manager.Length; i++)
                 {

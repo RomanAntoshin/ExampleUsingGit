@@ -54,7 +54,9 @@ namespace Task4OOP
                     break;
                 case "PhoneNumber":
                     this.PhoneNumber = newData;
-                    break;                  
+                    break;
+                default:
+                    throw new Exception();
             }
             History.Add(new History(DateTime.Now, field, "Update", autor));
         }
