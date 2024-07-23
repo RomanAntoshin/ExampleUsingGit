@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Task4OOP
 {
@@ -31,6 +32,31 @@ namespace Task4OOP
         public string PrintAll()
         {
             return Surname + "\n" + Name + "\n" + Patronymic + "\n" + PhoneNumber + "\n" + SeriesPasport + "\n" + NumberPasport + "\n";
+        }
+        public void MakeChanges(string field, string typechange, string autor, string newData)
+        {
+            switch (field)
+            {
+                case "Surname":
+                    this.Surname = newData;
+                    break;
+                case "Name":
+                    this.Name = newData;
+                    break;
+                case "Patronymic":
+                    this.Patronymic = newData;
+                    break;
+                case "SeriesPasport":
+                    this.SeriesPasport = newData;
+                    break;
+                case "NumberPasport":
+                    this.NumberPasport = newData;
+                    break;
+                case "PhoneNumber":
+                    this.PhoneNumber = newData;
+                    break;                  
+            }
+            History.Add(new History(DateTime.Now, field, "Update", autor));
         }
     }
 }

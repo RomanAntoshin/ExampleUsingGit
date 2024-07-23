@@ -30,7 +30,8 @@ namespace Task4OOP
             if (change == "1")
             {
                 Console.WriteLine("Consultant");
-                IConsultant consultant = new Consultant(data);
+                Power cPower = new PowerConsultant();
+                IConsultant consultant = new Consultant(data, cPower);
                 consultant.ChangePhoneNumber(1, "8 444 444 44 44");
                 consultant.ChangePhoneNumber(0, "");
                 WriteFile(consultant, filePath);
@@ -42,7 +43,8 @@ namespace Task4OOP
             else
             {
                 Console.WriteLine("Manager");
-                IManager manager = new Manager(data);
+                Power mPower = new PowerManager();
+                IManager manager = new Manager(data, mPower);
                 manager.ChangeName(0, "Серега");
                 manager.ChangePatronymic(1, "Ave");
                 manager.ChangeName(1, "Second");
