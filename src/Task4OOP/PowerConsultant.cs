@@ -8,12 +8,12 @@ namespace Task4OOP
 {
     class PowerConsultant: Power
     {
-        public override void MakeRequest(Client client, string field, string typeChange, string newData)
+        public override void MakeRequest(Client client, Fields.Field field, TypesChanges.TypeChange typeChange, string newData)
         {
             //throw new NotImplementedException();
-            if(field=="PhoneNumber" && newData!="")
+            if(field==Fields.Field.PhoneNumber && newData!="")
             {
-                client.MakeChanges(field, typeChange, "Consultant", newData);
+                client.MakeChanges(field, typeChange, Autors.Autor.Consultant, newData);
             }
         }
     }

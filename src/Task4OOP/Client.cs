@@ -33,36 +33,36 @@ namespace Task4OOP
         {
             return Surname + "\n" + Name + "\n" + Patronymic + "\n" + PhoneNumber + "\n" + SeriesPasport + "\n" + NumberPasport + "\n";
         }
-        public void MakeChanges(string field, string typechange, string autor, string newData)
+        public void MakeChanges(Fields.Field field, TypesChanges.TypeChange typechange, Autors.Autor autor, string newData)
         {
             switch (field)
             {
-                case "Surname":
+                case Fields.Field.Surname:
                     this.Surname = newData;
                     break;
-                case "Name":
+                case Fields.Field.Name:
                     this.Name = newData;
                     break;
-                case "Patronymic":
+                case Fields.Field.Patronymic:
                     this.Patronymic = newData;
                     break;
-                case "SeriesPasport":
+                case Fields.Field.SeriesPasport:
                     this.SeriesPasport = newData;
                     break;
-                case "NumberPasport":
+                case Fields.Field.NumberPasport:
                     this.NumberPasport = newData;
                     break;
-                case "PhoneNumber":
+                case Fields.Field.PhoneNumber:
                     this.PhoneNumber = newData;
                     break;
                 default:
                     throw new Exception();
             }
-            History.Add(new History(DateTime.Now, field, "Update", autor));
+            History.Add(new History(DateTime.Now, field.ToString(), typechange.ToString(), autor.ToString()));
         }
-        public void AddYourself(string autor)
+        public void AddYourself(Autors.Autor autor)
         {
-            History.Add(new History(DateTime.Now, "All", "Add", autor));
+            History.Add(new History(DateTime.Now, Fields.Field.All.ToString(), TypesChanges.TypeChange.Add.ToString(), autor.ToString()));
         }
     }
 }

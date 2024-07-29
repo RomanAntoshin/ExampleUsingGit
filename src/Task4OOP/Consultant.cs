@@ -23,17 +23,13 @@ namespace Task4OOP
         {
             return clients[ind].PrintSecret();
         }
-        public void ChangeData(int ind, string field, string newData)
+        public void ChangeData(int ind, Fields.Field field, string newData)
         {
-            power.MakeRequest(clients[ind], field, "Update", newData);
+            power.MakeRequest(clients[ind], field, TypesChanges.TypeChange.Update, newData);
         }
-        /*public void ChangePhoneNumber(int ind, string phoneNumber)
-        {
-            power.MakeRequest(clients[ind], "PhoneNumber", "Update", phoneNumber);
-        }*/
-        public void WriteChange(int ind, string changes)
+        /*public void WriteChange(int ind, string changes)
         {
             clients[ind].History.Add(new History(DateTime.Now, changes, "Update", this.GetType().ToString()));
-        }
+        }*/
     }
 }

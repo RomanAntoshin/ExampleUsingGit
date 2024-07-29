@@ -14,7 +14,7 @@ namespace Task4OOP
         public void AddClient(Client client)
         {
             this.clients.Add(client);
-            client.AddYourself("Manager");
+            client.AddYourself(Autors.Autor.Manager);
         }
     }
 }
