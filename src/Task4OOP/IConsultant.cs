@@ -8,7 +8,5 @@ namespace Task4OOP
         public IList<Client> Clients { get; }
         string View(int ind);
         void ChangeData(int ind, Fields.Field field, string newData);
-        //void ChangePhoneNumber(int ind, string phoneNumber);
-        //void WriteChange(int ind, string changes);
     }
 }

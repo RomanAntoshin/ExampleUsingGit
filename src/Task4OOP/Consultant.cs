@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Task4OOP
 {
@@ -27,9 +26,5 @@ namespace Task4OOP
         {
             power.MakeRequest(clients[ind], field, TypesChanges.TypeChange.Update, newData);
         }
-        /*public void WriteChange(int ind, string changes)
-        {
-            clients[ind].History.Add(new History(DateTime.Now, changes, "Update", this.GetType().ToString()));
-        }*/
     }
 }

@@ -15,12 +15,5 @@ namespace Task4OOP
             Type = type;
             Autor = autor;
         }
-        public void Print()
-        {
-            Console.WriteLine(DateTime);
-            Console.WriteLine(DataChanged);
-            Console.WriteLine(Type);
-            Console.WriteLine(Autor);
-        }
     }
 }
